@@ -56,11 +56,15 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>DB_EquipmentDml</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DB_EquipmentSelector</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>DB_MaintenanceRequestDao</apexClass>
+        <apexClass>DB_GenericDml</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -68,7 +72,19 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>HTTP_RestfulCalloutStrategy</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>HTTP_RestfulCalloutStrategyInterface</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>HWR_MaintenanceRequests</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>HWR_WarehouseCalloutStrategy</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>

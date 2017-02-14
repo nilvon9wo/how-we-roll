@@ -1,20 +1,20 @@
 public class HWR_MaintenanceRequests {
     private List<Case> maintenanceRequestList;
-    private DB_MaintenanceRequestDao maintenanceRequestDao;
+    private DB_GenericDml genericDml;
     private DB_WorkPartSelector workPartSelector;
  
     public HWR_MaintenanceRequests(
     		List<Case> maintenanceRequestList, 
-    		DB_MaintenanceRequestDao maintenanceRequestDao, 
+    		DB_GenericDml genericDml, 
     		DB_WorkPartSelector workPartSelector
     	) {
         this.maintenanceRequestList = maintenanceRequestList;
-        this.maintenanceRequestDao = maintenanceRequestDao;
+        this.genericDml = genericDml;
         this.workPartSelector = workPartSelector; 
     } 
 
     public HWR_MaintenanceRequests(List<Case> maintenanceRequestList) {
-        this(maintenanceRequestList, new DB_MaintenanceRequestDao(), new DB_WorkPartSelector());
+        this(maintenanceRequestList, new DB_GenericDml(), new DB_WorkPartSelector());
     } 
 
 /* Automate Maintenance Requests
@@ -45,7 +45,7 @@ public class HWR_MaintenanceRequests {
 	    		));
     		} 
     	}  
-    	maintenanceRequestDao.doInsert(newMaintenanceRequestList);
+    	genericDml.doInsert(newMaintenanceRequestList);
     }
     
     private Boolean isUpdateRequired(Map<Id,SObject> oldMaintenanceRequestMap, Case newCase) {
