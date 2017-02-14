@@ -1,7 +1,26 @@
-public class MaintenanceRequestHelper {
+public class MaintenanceRequestHelper extends fflib_SObjectDomain {
+    List<Case> maintenanceRequestList;
+    HWR_MaintenanceRequests maintenanceRequests; 
     
-    public static void updateWorkOrders(){
-        // update workorders
-    }        
+    public MaintenanceRequestHelper(List<Case> maintenanceRequestList, HWR_MaintenanceRequests maintenanceRequests) {
+        super(maintenanceRequestList);
+        this.maintenanceRequestList = maintenanceRequestList;
+        this.maintenanceRequests = maintenanceRequests;
+    }
+ 
+    public MaintenanceRequestHelper(List<Case> maintenanceRequestList) {
+        this(maintenanceRequestList, new HWR_MaintenanceRequests(maintenanceRequestList));
+    }
     
+    public class Constructor implements fflib_SObjectDomain.IConstructable {
+        public fflib_SObjectDomain construct(List<SObject> maintenanceRequestList) {
+            return new MaintenanceRequestHelper (maintenanceRequestList);
+        }
+    } 
+    
+    // ---------------------------------------
+	
+    public override void onAfterUpdate(Map<Id,SObject> existingMaintenanceRequestMap) {
+    	maintenanceRequests.updateWorkOrders();
+    }
 }
