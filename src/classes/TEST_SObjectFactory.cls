@@ -19,8 +19,10 @@ public virtual class TEST_SObjectFactory {
 		protected Map<String, Object> defaultByKeyMap; 
 
 		private Map<SObjectType, String> nameFieldOverrideMap = new Map<SObjectType, String>{
+			Case.getSObjectType() => 'subject',
 			Contact.getSObjectType() => 'lastName',
-			Lead.getSObjectType() => 'lastName'
+			Lead.getSObjectType() => 'lastName',
+			Work_Part__c.getSObjectType() => 'TEST_DEBUG__c'
 		}; 
 		
 		public SObjectInQuantityStrategy(SObject template, Integer quantity, String defaultName, Map<String, Object> defaultByKeyMap){
