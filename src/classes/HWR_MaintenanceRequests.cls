@@ -1,4 +1,4 @@
-public class HWR_MaintenanceRequests {
+public virtual class HWR_MaintenanceRequests { 
     @testVisible private List<Case> maintenanceRequestList;
     private DB_GenericDml genericDml;
     private DB_WorkPartSelector workPartSelector;
@@ -17,7 +17,7 @@ public class HWR_MaintenanceRequests {
         this(maintenanceRequestList, new DB_GenericDml(), new DB_WorkPartSelector());
     } 
 
-    public void updateWorkOrders(Map<Id,SObject> oldMaintenanceRequestMap) {
+    public virtual void updateWorkOrders(Map<Id,SObject> oldMaintenanceRequestMap) {
     	List<Work_Part__c> workPartList = workPartSelector.selectByMaintenanceRequestIdWithEquipment(oldMaintenanceRequestMap.keySet());
     	
     	List<Case> newMaintenanceRequestList = new List<Case>();

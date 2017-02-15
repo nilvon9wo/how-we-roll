@@ -1,20 +1,18 @@
-@IsTest
-private class InstallationTests {
+@isTest
+private class MaintenanceRequestTriggerTest {
 	private static final User TestRunner = TEST_RunAsUserFactory.create(); 
 	private static final Integer DAYS_TIL_NEXT_SERVICE_DUE = 35;
 
     static testmethod void testMaintenanceRequest() {
     	// Arrange
 		Case closingMaintenanceRequest = TEST_MaintenanceRequestFactory.createRealClosingMaintenanceRequest('Routine Maintenance');
-    	List<Case> newMaintenanceRequestList = new List<Case>{closingMaintenanceRequest};
-    	Map<Id,Case> existingMaintenanceRequestMap = new Map<Id,Case>(newMaintenanceRequestList);
     	populateWorkPartSelector(closingMaintenanceRequest.id);
     	
     	// Act
         System.runAs(TestRunner){
             Test.startTest();
             {
-                MaintenanceRequestHelper.updateWorkOrders(newMaintenanceRequestList, existingMaintenanceRequestMap);
+            	update closingMaintenanceRequest;
             }
             Test.stopTest();
         } 
@@ -45,10 +43,6 @@ private class InstallationTests {
 		); 		
 		TEST_WorkPartFactory.create(workPartTemplate, TEST_DummyInsertModeEnum.REAL);  
 	}
-    
-    // -----------------------------------------------------------------------------------------------
-    
-    static testmethod void testWarehouseSync() {
-        //WarehouseCalloutService.runWarehouseEquipmentSync();
-    }    
+	
+	
 }

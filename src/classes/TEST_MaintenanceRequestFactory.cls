@@ -26,4 +26,21 @@ public class TEST_MaintenanceRequestFactory extends TEST_SObjectFactory {
 			super(template, quantity, 'Case ', defaultByKeyMap);
 		}
 	}
+	
+	public static Case createRealClosingMaintenanceRequest(String requestType) {
+		Case maintenanceRequestTemplate = new Case(
+			status = 'Closed', 
+			vehicle__c = TEST_VehicleFactory.create(TEST_DummyInsertModeEnum.REAL).id, 
+			equipment__c = TEST_EquipmentFactory.create(TEST_DummyInsertModeEnum.REAL).id, 
+			type = requestType
+		);
+		Case newMaintenanceRequest = create(maintenanceRequestTemplate, TEST_DummyInsertModeEnum.REAL);
+		Case closedMaintenanceRequest = [
+			SELECT id, isClosed, vehicle__c, equipment__c, type
+			FROM Case
+			WHERE id = :newMaintenanceRequest.id
+		];
+		return closedMaintenanceRequest; 		
+	}
+	
 }

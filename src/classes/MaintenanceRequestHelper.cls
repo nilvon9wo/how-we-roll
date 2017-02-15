@@ -19,6 +19,11 @@ public class MaintenanceRequestHelper extends fflib_SObjectDomain {
     } 
     
     // ---------------------------------------
+
+	public static void updateWorkOrders(List<Case> newMaintenanceRequestList, Map<Id,Case> existingMaintenanceRequestMap) {
+		MaintenanceRequestHelper helper = (new MaintenanceRequestHelper(newMaintenanceRequestList));
+		helper.onAfterUpdate(existingMaintenanceRequestMap);
+	}
 	
     public override void onAfterUpdate(Map<Id,SObject> existingMaintenanceRequestMap) {
     	maintenanceRequests.updateWorkOrders(existingMaintenanceRequestMap);

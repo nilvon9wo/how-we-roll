@@ -4,9 +4,9 @@ private class MaintenanceRequestHelperTest {
 	
 	@isTest static void onAfterUpdateShouldUpdateWorkOrders(){
 		// Arrange
-		List<Case> maintenanceRequestList = new List<Case>(); 
-		HWR_MaintenanceRequests maintenanceRequests;
-		MaintenanceRequestHelper targetClass = new MaintenanceRequestHelper(maintenanceRequestList, maintenanceRequests);
+		List<Case> maintenanceRequestList = new List<Case>();   
+		HWR_MaintenanceRequestsMock maintenanceRequestMock = new HWR_MaintenanceRequestsMock(maintenanceRequestList); 
+		MaintenanceRequestHelper targetClass = new MaintenanceRequestHelper(maintenanceRequestList, maintenanceRequestMock);
 		Map<Id,SObject> existingMaintenanceRequestMap = null; 
 		
 		// Act
@@ -19,7 +19,6 @@ private class MaintenanceRequestHelperTest {
         }
 
 		// Assert
-		// TO DO: assert results
-		//System.assertEquals(EXPECTATION, ACTUAL);
+		System.assertEquals(true, maintenanceRequestMock.workOrdersWereUpdated);
 	}
 }
