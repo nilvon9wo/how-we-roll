@@ -11,21 +11,16 @@ public abstract class HTTP_RestfulCalloutStrategy implements HTTP_RestfulCallout
 	}
 	
 	public HttpResponse execute() { 
-		Http http = new Http();
-		
-		HttpRequest request = new HttpRequest();
-		configureRequest(request);
-		HttpResponse response = http.send(request);
-		
-		if (!(this.successCodeSet.contains(response.getStatusCode()))) {
-			return onFailure(response);
-		} 
-		else {
-			return onSuccess(response);
-		}
+		HttpResponse response = (new Http()).send(createRequest());
+		return (!(this.successCodeSet.contains(response.getStatusCode()))) 
+			? onFailure(response)
+			: onSuccess(response);
 	}    
-	 	
-	private HttpRequest configureRequest(HttpRequest request) {
+	
+	@testVisible 	 
+	private HttpRequest createRequest() {
+		HttpRequest request = new HttpRequest();
+
 		String endpoint = this.endpoint;
 		if (targetId != null) {
 			endpoint += '/' + targetId;
