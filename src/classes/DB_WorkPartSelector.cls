@@ -1,4 +1,4 @@
-public class DB_WorkPartSelector extends fflib_SObjectSelector {
+public virtual class DB_WorkPartSelector extends fflib_SObjectSelector {
 
     public List<Schema.SObjectField> getSObjectFieldList() {
         return new List<Schema.SObjectField>{
@@ -12,7 +12,7 @@ public class DB_WorkPartSelector extends fflib_SObjectSelector {
         return Work_Part__c.sObjectType;
     }
     
-    public List<Work_Part__c> selectByMaintenanceRequestIdWithEquipment(Set<Id> idSet) {
+    public virtual List<Work_Part__c> selectByMaintenanceRequestIdWithEquipment(Set<Id> idSet) {
         fflib_QueryFactory queryFactory = newQueryFactory();
         new DB_EquipmentSelector().configureQueryFactoryFields(queryFactory, 'equipment__c');
         return (List<Work_Part__c>) Database.query(

@@ -97,6 +97,55 @@ public virtual class TEST_SObjectFactory {
 			return mockSObjectList; 
 		}
 	}
+
+	// ----------------------------------------------------------------------------------------
+	
+	public virtual class SObjectPerTemplateStrategy implements MockStrategyInterface {
+		protected List<SObject> templateList;
+		protected String defaultName; 
+		protected Map<String, Object> defaultByKeyMap; 
+
+		private Map<SObjectType, String> nameFieldOverrideMap = new Map<SObjectType, String>{
+			Case.getSObjectType() => 'subject',
+			Contact.getSObjectType() => 'lastName',
+			Lead.getSObjectType() => 'lastName',
+			Work_Part__c.getSObjectType() => 'TEST_DEBUG__c'
+		}; 
+		
+		public SObjectPerTemplateStrategy(List<SObject> templateList, String defaultName, Map<String, Object> defaultByKeyMap){
+			this.templateList = templateList;
+			this.defaultName = defaultName;
+			this.defaultByKeyMap = defaultByKeyMap;
+		}
+		
+		public SObjectPerTemplateStrategy(List<SObject> templateList, String defaultName){
+			this(templateList, defaultName, new Map<String, Object>());
+		}
+		  
+		public SObjectPerTemplateStrategy(List<SObject> templateList){
+			this(templateList, 'SObject', new Map<String, Object>());
+		}
+		  
+		public virtual List<SObject> execute(List<SObject> mockSObjectList) {
+			Integer i = 0;
+			for (SObject template :  templateList) {
+				this.fillName(template, i++);
+				for (String key : this.defaultByKeyMap.keySet()) {
+					fillIfBlank (template, key, this.defaultByKeyMap.get(key));
+				}
+				mockSObjectList.add(template.clone());
+			}
+			return mockSObjectList; 
+		}
+		
+		private String fillName(SObject template, Integer index) {
+				SObjectType sObjType = template.getSObjectType();
+				String overrideNameField = nameFieldOverrideMap.get(sObjType);
+				String nameField = (!String.isBlank(overrideNameField)) ? overrideNameField : 'name';
+				fillIfBlank (template, nameField, this.defaultName + index);
+				return nameField;
+		}
+	}
      	
 	// ----------------------------------------------------------------------------------------------
 	

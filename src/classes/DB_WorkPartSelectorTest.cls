@@ -6,7 +6,7 @@ private class DB_WorkPartSelectorTest {
 		// Arrange
 		DB_WorkPartSelector targetClass = new DB_WorkPartSelector();
 
-		Product2 equipmentTemplate = new Product2(maintenance_cycle__c = 5322, replacement_part__c = true);
+		Product2 equipmentTemplate = new Product2(maintenance_cycle__c = 5322);
 		Id testEquipmentId = TEST_EquipmentFactory.create(equipmentTemplate, TEST_DummyInsertModeEnum.REAL).id;
 		Id testMaintenanceRequestId = TEST_MaintenanceRequestFactory.create(TEST_DummyInsertModeEnum.REAL).id;  
 		Work_Part__c workPartTemplate = new Work_Part__c(equipment__c = testEquipmentId, maintenance_request__c = testMaintenanceRequestId); 
