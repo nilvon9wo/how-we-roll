@@ -25,5 +25,10 @@
         <label><!-- Quantity --></label>
         <name>Quantity__c</name>
     </fields>
+    <fields>
+        <help><!-- This field is for testing and debugging only.  It should not appear in the UI or hold important values. --></help>
+        <label><!-- TEST DEBUG --></label>
+        <name>TEST_DEBUG__c</name>
+    </fields>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>
