@@ -60,6 +60,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DB_EquipmentDmlMock</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DB_EquipmentDmlTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -76,11 +80,19 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DB_GenericDmlMock</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DB_GenericDmlTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DB_WorkPartSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DB_WorkPartSelectorMock</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -112,7 +124,23 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>HWR_MaintenanceRequestsIntTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>HWR_MaintenanceRequestsTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>HWR_WarehouseCalloutStrategy</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>HWR_WarehouseCalloutStrategyIntTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>HWR_WarehouseCalloutStrategyTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -121,6 +149,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MaintenanceRequestHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MaintenanceRequestHelperTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -153,6 +185,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TEST_SObjectPrefixHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_VehicleFactory</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>

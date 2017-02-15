@@ -4,7 +4,7 @@ private class MaintenanceRequestHelperTest {
 	
 	@isTest static void onAfterUpdateShouldUpdateWorkOrders(){
 		// Arrange
-		List<Case> maintenanceRequestList = null; 
+		List<Case> maintenanceRequestList = new List<Case>(); 
 		HWR_MaintenanceRequests maintenanceRequests;
 		MaintenanceRequestHelper targetClass = new MaintenanceRequestHelper(maintenanceRequestList, maintenanceRequests);
 		Map<Id,SObject> existingMaintenanceRequestMap = null; 

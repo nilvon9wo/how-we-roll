@@ -4,7 +4,7 @@ private class HWR_WarehouseCalloutStrategyTest {
 	
 	@isTest static void onSuccessShouldUpsertRecords(){
 		// Arrange
-		TEST_FakeEquipmentDML equipmentDml = new TEST_FakeEquipmentDML(); 
+		DB_EquipmentDmlMock equipmentDml = new DB_EquipmentDmlMock(); 
 		HWR_WarehouseCalloutStrategy targetClass = new HWR_WarehouseCalloutStrategy('http://test.example.com', equipmentDml); 
 		
 		String name = 'Test Equipment'; 

@@ -1,8 +1,8 @@
-@isTest
-public class TEST_FakeWorkPartSelector extends DB_WorkPartSelector{
+@isTest 
+public class DB_WorkPartSelectorMock extends DB_WorkPartSelector{  
 	Decimal daysTilNextServiceDue;
 	
-	public TEST_FakeWorkPartSelector(Decimal daysTilNextServiceDue){
+	public DB_WorkPartSelectorMock(Decimal daysTilNextServiceDue){
 		this.daysTilNextServiceDue = daysTilNextServiceDue;
 	}
 	

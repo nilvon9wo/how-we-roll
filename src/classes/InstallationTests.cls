@@ -7,9 +7,9 @@
 @IsTest
 private class InstallationTests {
     static testmethod void testMaintenanceRequest() {
-        MaintenanceRequestHelper.updateWorkOrders();
+        //MaintenanceRequestHelper.updateWorkOrders();
     }
     static testmethod void testWarehouseSync() {
-        WarehouseCalloutService.runWarehouseEquipmentSync();
+        //WarehouseCalloutService.runWarehouseEquipmentSync();
     }    
 }

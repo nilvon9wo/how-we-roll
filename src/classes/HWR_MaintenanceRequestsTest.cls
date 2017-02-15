@@ -13,7 +13,7 @@ private class HWR_MaintenanceRequestsTest {
 
 	static void testUpdateWorkOrdersShouldCreateNewRequestsForSpecifiedClosedRequests(String requestType){
 		// Arrange
-		TEST_FakeGenericDml fakeGenericDml = new TEST_FakeGenericDml();  
+		DB_GenericDmlMock fakeGenericDml = new DB_GenericDmlMock();  
 		HWR_MaintenanceRequests targetClass = initializeMaintenanceRequests(requestType, fakeGenericDml);
 
 		Case oldMaintenanceRequest = targetClass.maintenanceRequestList[0].clone(true, true, true, true);
@@ -43,7 +43,7 @@ private class HWR_MaintenanceRequestsTest {
 	
 	@isTest static void testUpdateWorkOrdersShouldDoNothingForOpenUpdates(){
 		// Arrange
-		TEST_FakeGenericDml fakeGenericDml = new TEST_FakeGenericDml();  
+		DB_GenericDmlMock fakeGenericDml = new DB_GenericDmlMock();  
 		HWR_MaintenanceRequests targetClass = initializeMaintenanceRequests('Routine Maintenance', fakeGenericDml);
 		targetClass.maintenanceRequestList[0].status = 'New';
 		
@@ -66,7 +66,7 @@ private class HWR_MaintenanceRequestsTest {
 	
 	@isTest static void testUpdateWorkOrdersShouldDoNothingForOtherClosedRequests() {
 		// Arrange
-		TEST_FakeGenericDml fakeGenericDml = new TEST_FakeGenericDml();  
+		DB_GenericDmlMock fakeGenericDml = new DB_GenericDmlMock();  
 		HWR_MaintenanceRequests targetClass = initializeMaintenanceRequests('Mechanical', fakeGenericDml);
 		
 		Case oldMaintenanceRequest = targetClass.maintenanceRequestList[0].clone(true, true, true, true);
@@ -88,9 +88,9 @@ private class HWR_MaintenanceRequestsTest {
 	
 	private static HWR_MaintenanceRequests initializeMaintenanceRequests(
 			String requestType, 
-			TEST_FakeGenericDml fakeGenericDml
+			DB_GenericDmlMock fakeGenericDml
 		) {
-		Case maintenanceRequestTemplate = new Case(
+		Case maintenanceRequestTemplate = new Case( 
 			status = 'Closed', 
 			vehicle__c = TEST_VehicleFactory.create(TEST_DummyInsertModeEnum.MOCK).id, 
 			equipment__c = TEST_EquipmentFactory.create(TEST_DummyInsertModeEnum.MOCK).id, 
@@ -99,7 +99,7 @@ private class HWR_MaintenanceRequestsTest {
 		Case newMaintenanceRequest = TEST_MaintenanceRequestFactory.create(maintenanceRequestTemplate, TEST_DummyInsertModeEnum.MOCK);		
 		List<Case> newMaintenanceRequestList = new List<Case>{newMaintenanceRequest};
 		
-		TEST_FakeWorkPartSelector fakeWorkPartSelector = new TEST_FakeWorkPartSelector(DAYS_TIL_NEXT_SERVICE_DUE);
+		DB_WorkPartSelectorMock fakeWorkPartSelector = new DB_WorkPartSelectorMock(DAYS_TIL_NEXT_SERVICE_DUE);
 		return new HWR_MaintenanceRequests(newMaintenanceRequestList, fakeGenericDml, fakeWorkPartSelector);
 	}
 	
@@ -107,7 +107,7 @@ private class HWR_MaintenanceRequestsTest {
 	
 	@isTest static void testSelectDueDateShouldUseLowestMaintenanceCycleToReturnDate() {
 		// Arrange
-		TEST_FakeGenericDml fakeGenericDml = new TEST_FakeGenericDml();  
+		DB_GenericDmlMock fakeGenericDml = new DB_GenericDmlMock();  
 		HWR_MaintenanceRequests targetClass = initializeMaintenanceRequests('', fakeGenericDml);
 		
 		Case maintenanceRequest = targetClass.maintenanceRequestList[0].clone(true, true, true, true);
@@ -136,7 +136,7 @@ private class HWR_MaintenanceRequestsTest {
 
 	@isTest static void testSelectDueDateShouldDefaultToYear4000() {
 		// Arrange
-		TEST_FakeGenericDml fakeGenericDml = new TEST_FakeGenericDml();  
+		DB_GenericDmlMock fakeGenericDml = new DB_GenericDmlMock();  
 		HWR_MaintenanceRequests targetClass = initializeMaintenanceRequests('', fakeGenericDml);
 		
 		Case maintenanceRequest = targetClass.maintenanceRequestList[0].clone(true, true, true, true);
