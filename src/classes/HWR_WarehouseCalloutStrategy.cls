@@ -16,17 +16,16 @@ public virtual class HWR_WarehouseCalloutStrategy extends HTTP_RestfulCalloutStr
 		for (Object equipment: receivedEquipmentList) {
 			Map<String, Object> equipmentPropertyByNameMap = (Map<String, Object>) JSON.deserializeUntyped(JSON.serialize(equipment));
 			updatedEquipmentList.add(new Product2(
-				replacement_part__c = (Boolean) equipmentPropertyByNameMap.get('replacement'),
-				current_inventory__c = (Decimal) equipmentPropertyByNameMap.get('quantity'),
 				name = (String) equipmentPropertyByNameMap.get('name'),
-				maintenance_cycle__c = (Decimal) equipmentPropertyByNameMap.get('maintenanceperiod'),
-				lifespan_months__c = (Decimal) equipmentPropertyByNameMap.get('lifespan'),
+				warehouse_sku__c = (String) equipmentPropertyByNameMap.get('sku'),
 				cost__c = (Decimal) equipmentPropertyByNameMap.get('cost'),
-				warehouse_sku__c = (String) equipmentPropertyByNameMap.get('sku')
+				current_inventory__c = (Decimal) equipmentPropertyByNameMap.get('quantity'),
+				lifespan_months__c = (Decimal) equipmentPropertyByNameMap.get('lifespan'),
+				maintenance_cycle__c = (Decimal) equipmentPropertyByNameMap.get('maintenanceperiod'),
+				replacement_part__c = (Boolean) equipmentPropertyByNameMap.get('replacement')
 			));
 		}
-
-		this.equipmentDml.doUpsertUsingSkuAsExternalKey(updatedEquipmentList);
+		equipmentDml.doUpsertUsingSkuAsExternalKey(updatedEquipmentList);		
 		return response;
-	}     
+	} 
 }

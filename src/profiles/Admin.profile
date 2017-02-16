@@ -128,6 +128,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>HWR_MaintenanceRequestsMock</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>HWR_MaintenanceRequestsTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -137,6 +141,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>HWR_WarehouseCalloutStrategyIntTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>HWR_WarehouseCalloutStrategyMock</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -152,7 +160,15 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MaintenanceRequestHelperIntTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MaintenanceRequestHelperTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MaintenanceRequestTriggerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -200,6 +216,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>WarehouseCalloutServiceIntTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>WarehouseCalloutServiceMock</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -209,6 +229,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>WarehouseSyncSchedule</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>WarehouseSyncScheduleIntTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>WarehouseSyncScheduleTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>

@@ -128,6 +128,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>HWR_MaintenanceRequestsMock</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>HWR_MaintenanceRequestsTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -137,6 +141,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>HWR_WarehouseCalloutStrategyIntTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>HWR_WarehouseCalloutStrategyMock</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -152,7 +160,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MaintenanceRequestHelperIntTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MaintenanceRequestHelperTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MaintenanceRequestTriggerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -200,6 +216,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>WarehouseCalloutServiceIntTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>WarehouseCalloutServiceMock</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -209,6 +229,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>WarehouseSyncSchedule</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>WarehouseSyncScheduleIntTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>WarehouseSyncScheduleTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -2195,10 +2223,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ShowCompanyNameAsUserBadge</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>SubscribeToLightningReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
