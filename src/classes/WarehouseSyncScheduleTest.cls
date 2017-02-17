@@ -3,38 +3,15 @@ private class WarehouseSyncScheduleTest {
 	private static final User TestRunner = TEST_RunAsUserFactory.create(); 
 
 	@isTest static void testScheduleMorningRun(){
-/*
 		// Arrange
-		Integer successCode = 200;
-		String name = 'Test Equipment'; 
-		String warehouseSku = 'Some Sku 2342';
-		Decimal cost = 432;
-		Decimal lifespan = 312;
-		Decimal maintenancePeriod = 212;
-		Decimal quantity = 153;
-		Boolean isReplacement = true;
-		String testBody = '[{' 
-				+ '"name" : "' + name + '",'
-				+ '"sku" : "' + warehouseSku + '",'
-				+ '"cost" : ' + cost + ','
-				+ '"lifespan" : ' + lifespan + ','
-				+ '"maintenanceperiod" : ' + maintenancePeriod + ','
-				+ '"quantity" : ' + quantity + ','
-				+ '"replacement" : ' + isReplacement 
-			+ '}]';
-*/		
-		Test.setMock(HttpCalloutMock.class, new WarehouseCalloutServiceMock());
+		// Nothing to do here.
 
 		// Act
 		Id resultJobId;
         System.runAs(TestRunner){
-            Test.startTest();
-            {
-                resultJobId = WarehouseSyncSchedule.scheduleMorningRun(); 
-            }
-            Test.stopTest();
+        	resultJobId = WarehouseSyncSchedule.scheduleMorningRun(); 
         }
-/*
+        
 		CronTrigger cronTrigger = [
 			SELECT cronExpression, timesTriggered, nextFireTime 
 			FROM CronTrigger 
@@ -42,6 +19,7 @@ private class WarehouseSyncScheduleTest {
 		];
 
 		System.assertEquals(0, cronTrigger.timesTriggered);
-*/		
-	}        
+		String expectedSchedule = '0 0 9 * * ?'; // TestRunner has Berlin TimeZone.
+		System.assertEquals(expectedSchedule, cronTrigger.cronExpression);
+	}
 }
